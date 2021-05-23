@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXProgressBar?>
+<?import com.jfoenix.controls.JFXRippler?>
+<?import com.jfoenix.controls.JFXScrollPane?>
+<?import com.jfoenix.controls.JFXToolbar?>
+<?import com.jfoenix.controls.pannable.PannableScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <JFXScrollPane layoutX="235.0" layoutY="94.0" />
+      <JFXRippler layoutX="95.0" layoutY="167.0" />
+      <JFXProgressBar layoutX="335.0" layoutY="188.0" />
+      <PannableScrollPane layoutX="425.0" layoutY="288.0" />
+      <JFXToolbar layoutX="409.0" layoutY="77.0" />
+   </children>
+</AnchorPane>

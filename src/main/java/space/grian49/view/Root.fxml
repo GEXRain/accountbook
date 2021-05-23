@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="body" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="space.grian49.view.Controller">
+   <children>
+      <AnchorPane fx:id="content" prefHeight="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="58.0" />
+      <VBox fx:id="vBox" prefHeight="342.0" prefWidth="130.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="58.0">
+         <children>
+            <JFXButton accessibleText="主页" buttonType="RAISED" graphicTextGap="10.0" prefHeight="50.0" prefWidth="150.0" ripplerFill="#008cff" text="主页" textFill="#4b5682" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets left="5.0" top="15.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <padding>
+                  <Insets right="30.0" />
+               </padding>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icon/主页.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton accessibleText="账户" buttonType="RAISED" graphicTextGap="10.0" prefHeight="50.0" prefWidth="150.0" ripplerFill="#008cff" text="账户" textFill="#4b5682">
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <padding>
+                  <Insets right="30.0" />
+               </padding>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icon/账户.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton accessibleText="统计" buttonType="RAISED" graphicTextGap="10.0" prefHeight="50.0" prefWidth="150.0" ripplerFill="#008cff" text="统计" textFill="#4b5682">
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <padding>
+                  <Insets right="30.0" />
+               </padding>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icon/统计.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton accessibleText="我的" buttonType="RAISED" graphicTextGap="10.0" prefHeight="50.0" prefWidth="150.0" ripplerFill="#008cff" text="我的" textFill="#4b5682">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <padding>
+                  <Insets right="30.0" />
+               </padding>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icon/我的.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton accessibleText="高级" buttonType="RAISED" graphicTextGap="10.0" prefHeight="50.0" prefWidth="150.0" ripplerFill="#0088ff" text="高级" textFill="#4b5682">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <padding>
+                  <Insets right="30.0" />
+               </padding>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icon/高级.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin>
+            </JFXButton>
+         </children>
+         <effect>
+            <Glow level="0.2" />
+         </effect>
+      </VBox>
+      <Pane prefHeight="58.0" prefWidth="600.0" style="-fx-background-color: rgb(82, 100, 174);" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <JFXHamburger fx:id="hamburger" prefHeight="58.0" prefWidth="71.0" stylesheets="@css/main.css" />
+            <Label fx:id="title" layoutX="78.0" layoutY="12.0" text="主页" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Microsoft YaHei Bold" size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
