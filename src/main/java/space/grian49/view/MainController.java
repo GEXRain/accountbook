@@ -16,7 +16,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
-public class Controller {
+public class MainController {
 
 	@FXML
 	private Label title;
@@ -97,6 +97,10 @@ public class Controller {
 			System.out.println(getClass().getResource("./" + page + ".fxml"));
 			Pane contentPage = FXMLLoader.load(getClass().getResource("./" + page + ".fxml"));
 			content.getChildren().add(contentPage);
+			AnchorPane.setRightAnchor(contentPage, 0.0);
+			AnchorPane.setLeftAnchor(contentPage, 0.0);
+			AnchorPane.setTopAnchor(contentPage, 0.0);
+			AnchorPane.setBottomAnchor(contentPage, 0.0);
 			title.setText(page);
 		} catch (IOException e) {
 			e.printStackTrace();

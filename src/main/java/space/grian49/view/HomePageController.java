@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 
-public class mainPageController {
+public class HomePageController {
     @FXML
     private AnchorPane root;
     @FXML
