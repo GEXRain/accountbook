@@ -1,4 +1,4 @@
-package space.grian49.server;
+package space.grain49.server;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

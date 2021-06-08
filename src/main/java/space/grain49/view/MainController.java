@@ -1,4 +1,4 @@
-package space.grian49.view;
+package space.grain49.view;
 
 import java.io.IOException;
 

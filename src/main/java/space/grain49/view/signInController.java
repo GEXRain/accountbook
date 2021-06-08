@@ -1,4 +1,4 @@
-package space.grian49.view;
+package space.grain49.view;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
@@ -9,7 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-import space.grian49.server.SignIn;
+import space.grain49.server.SignIn;
 
 /**
  * signIn.Controller
@@ -30,7 +30,7 @@ public class signInController {
 
     @FXML
     void clicked(ActionEvent event) {
-        progressBar.setVisible(true);
+        progressBar.setVisible(false);
         if(SignIn.signIn(account_number.getText(), password.getText())){
             SignIn.SignInData.setAccount(account_number.getText());
             SignIn.SignInData.setPassword(password.getText());

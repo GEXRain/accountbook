@@ -1,4 +1,4 @@
-package space.grian49.view;
+package space.grain49.view;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ScrollPane;
