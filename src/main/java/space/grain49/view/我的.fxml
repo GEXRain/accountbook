@@ -10,21 +10,21 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="space.grain49.view.signInController">
+<AnchorPane fx:id="root" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="space.grain49.view.signInController">
    <children>
-      <BorderPane fx:id="root" layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
-            <VBox fx:id="list" maxWidth="200.0" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <VBox fx:id="list" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" BorderPane.alignment="CENTER">
                <children>
                   <JFXTextField fx:id="account_number" labelFloat="true" maxWidth="200.0" prefHeight="23.0" prefWidth="250.0" promptText="支持手机号登录" style="-fx-prompt-text-fill: #808080;" unFocusColor="#a7a7a7">
                      <font>
                         <Font size="16.0" />
                      </font>
                      <VBox.margin>
-                        <Insets top="100.0" />
+                        <Insets />
                      </VBox.margin>
                   </JFXTextField>
-                  <JFXPasswordField fx:id="password" labelFloat="true" prefHeight="34.0" prefWidth="250.0" promptText="密码" style="-fx-prompt-text-fill: #808080;" unFocusColor="#a7a7a7">
+                  <JFXPasswordField fx:id="password" labelFloat="true" prefHeight="34.0" promptText="密码" style="-fx-prompt-text-fill: #808080;" unFocusColor="#a7a7a7">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -32,7 +32,7 @@
                         <Insets top="20.0" />
                      </VBox.margin>
                   </JFXPasswordField>
-                  <JFXProgressBar fx:id="progressBar" prefWidth="200.0" visible="false">
+                  <JFXProgressBar fx:id="progressBar" prefWidth="200.0">
                      <VBox.margin>
                         <Insets top="20.0" />
                      </VBox.margin>

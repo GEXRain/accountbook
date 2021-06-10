@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTimePicker?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="space.grain49.view.AddBillController">
+   <center>
+      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity">
+               <children>
+                  <JFXComboBox fx:id="paymentAccountComboBox" promptText="账户" />
+                  <JFXTextField fx:id="typeField" promptText="类别">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="moneyField" promptText="金额">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity">
+               <children>
+                  <JFXDatePicker fx:id="datePicker" defaultColor="#009485" editable="false" maxHeight="-Infinity" maxWidth="-Infinity">
+                     <VBox.margin>
+                        <Insets left="40.0" />
+                     </VBox.margin>
+                  </JFXDatePicker>
+                  <JFXTimePicker fx:id="timePicker" maxHeight="-Infinity" maxWidth="-Infinity">
+                     <VBox.margin>
+                        <Insets left="40.0" top="20.0" />
+                     </VBox.margin>
+                  </JFXTimePicker>
+                  <JFXTextField fx:id="noteField" maxHeight="-Infinity" maxWidth="-Infinity" promptText="备注">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </center>
+   <bottom>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" BorderPane.alignment="BOTTOM_CENTER">
+         <children>
+            <AnchorPane maxHeight="-Infinity">
+               <children>
+                  <JFXRadioButton fx:id="in" text="收入" AnchorPane.rightAnchor="0.0">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="InorOut" />
+                     </toggleGroup>
+                  </JFXRadioButton>
+                  <JFXRadioButton fx:id="expend" selected="true" text="支出" toggleGroup="$InorOut" AnchorPane.leftAnchor="0.0" />
+               </children>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </AnchorPane>
+            <JFXButton fx:id="addButton" onAction="#addBill" stylesheets="@css/main.css">
+               <VBox.margin>
+                  <Insets bottom="50.0" top="20.0" />
+               </VBox.margin>
+            </JFXButton>
+         </children>
+      </VBox>
+   </bottom>
+</BorderPane>

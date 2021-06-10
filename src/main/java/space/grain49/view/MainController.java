@@ -44,13 +44,7 @@ public class MainController {
 
 	@FXML
 	public void initialize() {
-		try {
-			AnchorPane tempPane = FXMLLoader.load(getClass().getResource("./主页.fxml"));
-			content.getChildren().add(tempPane);
-			//mainPage.getChildren();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		refreshPage("主页");
 		drawersStack = new JFXDrawersStack();
 		drawersStack.setLayoutY(58); // drawer的起始位置x定点，默认0，y同。
 		body.getChildren().add(drawersStack);
