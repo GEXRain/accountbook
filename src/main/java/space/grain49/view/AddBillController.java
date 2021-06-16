@@ -14,15 +14,15 @@ import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTimePicker;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
+import space.grain49.Main;
 import space.grain49.server.BillDbUtil;
 import space.grain49.server.DBUtil;
 import space.grain49.server.PaymentAccountDbUtil;
 import space.grain49.server.SignInDbUtil.SignInData;
 import space.grain49.server.model.Bill;
 import space.grain49.server.model.PaymentAccount;
+
 
 public class AddBillController {
     private BillDbUtil sBillDbUtil = BillDbUtil.get();
@@ -82,18 +82,10 @@ public class AddBillController {
             }
             
         } else {
-            displayWorrying();
+            Main.displayWorrying();
         }
     }
 
-    private void displayWorrying() {
-        Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("Information Dialog");
-        alert.setHeaderText("先登录一下吧");
-        alert.setContentText("联网登录后才可以使用");
-
-        alert.showAndWait();
-    }
 
     public void initialize() {
         initPaymentAccount();
@@ -105,7 +97,6 @@ public class AddBillController {
         for (PaymentAccount paymentAccount : paymentAccounts) {
             paymentAccountComboBox.getItems().add(paymentAccount);
         }
-
         timePicker.set24HourView(true);
         timePicker.setValue(LocalTime.now());
         datePicker.setValue(LocalDate.now());

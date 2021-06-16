@@ -49,6 +49,8 @@ public class PaymentAccountDbUtil extends DBUtil {
         return paymentAccounts;
     }
 
+
+
     public int updatePaymentAccount(PaymentAccount paymentAccount){
         int line = 0;
         try {
@@ -65,6 +67,27 @@ public class PaymentAccountDbUtil extends DBUtil {
             line = stmt.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
+        }
+        return line;
+    }
+
+    public int insert(PaymentAccount paymentAccount) {
+        int line = 0;
+        try {
+            String sql = "insert into paymentAccount values(?,?,?,?,?,?);";
+            connection = this.getConnection();
+            stmt = connection.prepareStatement(sql);
+            stmt.setString(1, paymentAccount.getUuid());
+            stmt.setString(2, paymentAccount.getName());
+            stmt.setString(3, paymentAccount.getType());
+            stmt.setDouble(4, paymentAccount.getMoney());
+            stmt.setString(5, paymentAccount.getNote());
+            stmt.setString(6, paymentAccount.getUserID());
+            line = stmt.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            this.close(connection, stmt, rs);
         }
         return line;
     }

@@ -40,6 +40,7 @@ public class signInController {
             SignInDbUtil.SignInData.setAccount(account_number.getText());
             SignInDbUtil.SignInData.setPassword(password.getText());
             SignInDbUtil.SignInData.setisSignIn();
+            SignInDbUtil.SignInData.save();
             progressBar.setVisible(false);
             showContent();
 

@@ -7,25 +7,29 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXTimePicker?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="space.grain49.view.AddBillController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="space.grain49.view.AddBillController">
    <center>
       <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" BorderPane.alignment="CENTER">
          <children>
             <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity">
                <children>
-                  <JFXComboBox fx:id="paymentAccountComboBox" promptText="账户" />
-                  <JFXTextField fx:id="typeField" promptText="类别">
+                  <JFXComboBox fx:id="paymentAccountComboBox" labelFloat="true" prefHeight="30.0" prefWidth="184.0" promptText="账户" />
+                  <JFXTextField fx:id="typeField" labelFloat="true" prefWidth="184.0" promptText="类别">
                      <VBox.margin>
                         <Insets top="20.0" />
                      </VBox.margin>
                   </JFXTextField>
-                  <JFXTextField fx:id="moneyField" promptText="金额">
+                  <JFXTextField fx:id="moneyField" labelFloat="true" prefWidth="184.0" promptText="金额">
                      <VBox.margin>
                         <Insets top="20.0" />
                      </VBox.margin>
@@ -39,12 +43,12 @@
                         <Insets left="40.0" />
                      </VBox.margin>
                   </JFXDatePicker>
-                  <JFXTimePicker fx:id="timePicker" maxHeight="-Infinity" maxWidth="-Infinity">
+                  <JFXTimePicker fx:id="timePicker" maxHeight="-Infinity" maxWidth="-Infinity" stylesheets="@css/main.css">
                      <VBox.margin>
                         <Insets left="40.0" top="20.0" />
                      </VBox.margin>
                   </JFXTimePicker>
-                  <JFXTextField fx:id="noteField" maxHeight="-Infinity" maxWidth="-Infinity" promptText="备注">
+                  <JFXTextField fx:id="noteField" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" promptText="备注">
                      <VBox.margin>
                         <Insets top="20.0" />
                      </VBox.margin>
@@ -70,12 +74,34 @@
                   <Insets top="20.0" />
                </VBox.margin>
             </AnchorPane>
-            <JFXButton fx:id="addButton" onAction="#addBill" stylesheets="@css/main.css">
+            <JFXButton id="normal" fx:id="addButton" minWidth="150.0" onAction="#addBill" prefWidth="200.0" stylesheets="@css/main.css" text="确定">
                <VBox.margin>
                   <Insets bottom="50.0" top="20.0" />
                </VBox.margin>
             </JFXButton>
          </children>
+         <BorderPane.margin>
+            <Insets right="40.0" />
+         </BorderPane.margin>
       </VBox>
    </bottom>
+   <top>
+      <Label text="添加账单" BorderPane.alignment="TOP_LEFT">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets left="78.0" top="30.0" />
+         </BorderPane.margin>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#193b85" />
+                  <Stop color="#193b85" offset="0.006896551724137931" />
+                  <Stop color="#255dd7" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+   </top>
 </BorderPane>

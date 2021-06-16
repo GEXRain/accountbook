@@ -11,7 +11,7 @@
 
 <AnchorPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="space.grain49.view.HomePageController">
    <children>
-      <VBox style="-fx-background-color: #e9effb;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <VBox prefHeight="100.0" prefWidth="400.0" style="-fx-background-radius: 10; -fx-background-color: white;">
                <children>
@@ -56,7 +56,7 @@
                   <Insets left="40.0" right="40.0" top="40.0" />
                </VBox.margin>
                <effect>
-                  <DropShadow color="#a1a1a1ee" height="50.65" radius="24.825" width="50.65" />
+                  <DropShadow color="#b8b8b895" height="115.95" radius="55.144999999999996" width="106.63" />
                </effect>
             </VBox>
             <AnchorPane>
@@ -75,11 +75,15 @@
                   <Insets left="40.0" right="40.0" top="40.0" />
                </VBox.margin>
             </AnchorPane>
-            <JFXButton onAction="#addBill" stylesheets="@css/main.css" />
          </children>
          <effect>
             <DropShadow color="#9e9e9ed2" height="33.6" radius="17.5975" width="38.79" />
          </effect>
       </VBox>
+      <JFXButton buttonType="RAISED" onAction="#addBill" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: rgb(77, 102, 204); -fx-text-fill: WHITE;" stylesheets="@css/main.css" text="添加账单" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="40.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>
