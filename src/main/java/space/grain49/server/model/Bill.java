@@ -1,6 +1,7 @@
 package space.grain49.server.model;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 
 public class Bill {
     private String UUID;
@@ -92,4 +93,8 @@ public class Bill {
         this.userID = userID;
     }
 
+    public String timestampToString() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(timestamp);
+    }
 }

@@ -48,6 +48,34 @@ public class BillDbUtil extends DBUtil {
         return bills;
     }
 
+        /**
+     * @author GRain
+     * @return 所有的账单
+     */
+    public List<Bill> selectByDate(String userID, String begin, String end) {
+        List<Bill> bills = new ArrayList<Bill>();
+        try {
+            connection = this.getConnection();
+            String sql = "select * from bill where userID = ? and time > ? AND time <?;";
+            stmt = connection.prepareStatement(sql);
+            stmt.setString(1, userID);
+            stmt.setString(2, begin + " 00:00:00");
+            stmt.setString(3, end + " 00:00:00");
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                Bill bill = new Bill(rs.getString(1), rs.getDouble(2), rs.getString(3), rs.getString(4),
+                        rs.getString(5), rs.getString(6), rs.getTimestamp(7), rs.getString(8));
+                bills.add(bill);
+            }
+            return bills;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            this.close(connection, stmt, rs);
+        }
+        return bills;
+    }
+
     /**
      * @author GRain
      * @param bill

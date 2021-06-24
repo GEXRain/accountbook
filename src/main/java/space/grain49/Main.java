@@ -39,15 +39,15 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 	}
-	
-    public static void displayWorrying() {
-        Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("Information Dialog");
-        alert.setHeaderText("先登录一下吧");
-        alert.setContentText("联网登录后才可以使用");
 
-        alert.showAndWait();
-    }
+	public static void displayWorrying() {
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Information Dialog");
+		alert.setHeaderText("先登录一下吧");
+		alert.setContentText("联网登录后才可以使用");
+
+		alert.showAndWait();
+	}
 
 	public static void main(String[] args) {
 		launch(args);

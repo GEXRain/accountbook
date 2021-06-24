@@ -1,38 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXProgressBar?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTreeTableColumn?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="space.grain49.view.HomePageController">
    <children>
-      <VBox style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox prefHeight="600.0" prefWidth="747.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <VBox prefHeight="100.0" prefWidth="400.0" style="-fx-background-radius: 10; -fx-background-color: white;">
                <children>
-                  <Label prefHeight="31.0" prefWidth="73.0" text="收支结余">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
+                  <AnchorPane maxHeight="-Infinity">
+                     <children>
+                        <Label maxHeight="-Infinity" maxWidth="-Infinity" text="收支结余" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="0.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <JFXRadioButton fx:id="monthRadio" onAction="#getBalance" text="当月" AnchorPane.rightAnchor="100.0">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="YearOrMonth" />
+                           </toggleGroup>
+                        </JFXRadioButton>
+                        <JFXRadioButton fx:id="yearRadio" onAction="#getBalance" text="本年" toggleGroup="$YearOrMonth" AnchorPane.rightAnchor="10.0" />
+                     </children>
                      <VBox.margin>
-                        <Insets left="5.0" top="10.0" />
+                        <Insets top="5.0" />
                      </VBox.margin>
-                  </Label>
+                  </AnchorPane>
+                  <HBox maxHeight="-Infinity" maxWidth="-Infinity">
+                     <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </VBox.margin>
+                  </HBox>
                   <HBox minWidth="400.0" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                      <children>
                         <VBox prefHeight="100.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                            <children>
                               <Label text="收入" />
+                              <Text fx:id="inText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </Text>
                            </children>
                         </VBox>
                         <VBox prefHeight="100.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                            <children>
                               <Label text="支出" />
+                              <Text fx:id="outText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </Text>
                            </children>
                            <HBox.margin>
                               <Insets />
@@ -41,6 +73,11 @@
                         <VBox prefHeight="100.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                            <children>
                               <Label text="结余" />
+                              <Text fx:id="sumText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </Text>
                            </children>
                            <HBox.margin>
                               <Insets />
@@ -48,7 +85,7 @@
                         </VBox>
                      </children>
                      <VBox.margin>
-                        <Insets top="5.0" />
+                        <Insets left="10.0" top="10.0" />
                      </VBox.margin>
                   </HBox>
                </children>
@@ -56,29 +93,53 @@
                   <Insets left="40.0" right="40.0" top="40.0" />
                </VBox.margin>
                <effect>
-                  <DropShadow color="#b8b8b895" height="115.95" radius="55.144999999999996" width="106.63" />
+                  <DropShadow color="#b8b8b895" height="77.86" radius="38.625" width="78.64" />
                </effect>
             </VBox>
-            <AnchorPane>
+            <StackPane maxHeight="-Infinity" style="-fx-background-radius: 10; -fx-background-color: white;">
                <children>
-                  <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <JFXTreeTableView fx:id="tableView" maxHeight="-Infinity" style="-fx-background-radius: 10; -fx-background-color: white;" StackPane.alignment="CENTER">
+                     <columns>
+                        <JFXTreeTableColumn fx:id="typeColumn" minWidth="133.0" prefWidth="147.0" resizable="false" text="种类" />
+                        <JFXTreeTableColumn fx:id="moneyColumn" minWidth="82.0" prefWidth="117.0" resizable="false" text="金额" />
+                        <JFXTreeTableColumn fx:id="accountPaymentColumn" minWidth="55.0" prefWidth="120.0" resizable="false" text="账户" />
+                        <JFXTreeTableColumn fx:id="IO" minWidth="72.0" prefWidth="93.0" resizable="false" text="支出/收入" />
+                        <JFXTreeTableColumn fx:id="timeColumn" minWidth="133.0" prefWidth="189.0" resizable="false" sortType="DESCENDING" text="时间" />
+                     </columns>
+                     <StackPane.margin>
+                        <Insets />
+                     </StackPane.margin>
+                  </JFXTreeTableView>
+                  <VBox fx:id="loadingTips" maxHeight="-Infinity" maxWidth="-Infinity" style="-fx-background-color: white;" StackPane.alignment="CENTER">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Loading...">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="60.0" />
+                           </VBox.margin>
+                        </Text>
+                        <JFXProgressBar maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="0.0" prefWidth="229.0" styleClass="custom-jfx-progress-bar-stroke" stylesheets="@css/main.css" />
+                     </children>
+                  </VBox>
                </children>
                <VBox.margin>
-                  <Insets left="40.0" right="40.0" top="40.0" />
+                  <Insets left="40.0" right="40.0" top="20.0" />
                </VBox.margin>
-            </AnchorPane>
-            <AnchorPane>
+               <effect>
+                  <DropShadow color="#b8b8b895" height="78.53" radius="38.375" width="76.97" />
+               </effect>
+            </StackPane>
+            <AnchorPane prefWidth="400.0">
                <children>
-                  <VBox prefHeight="200.0" prefWidth="100.0" />
+                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" />
                </children>
                <VBox.margin>
                   <Insets left="40.0" right="40.0" top="40.0" />
                </VBox.margin>
             </AnchorPane>
          </children>
-         <effect>
-            <DropShadow color="#9e9e9ed2" height="33.6" radius="17.5975" width="38.79" />
-         </effect>
       </VBox>
       <JFXButton buttonType="RAISED" onAction="#addBill" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: rgb(77, 102, 204); -fx-text-fill: WHITE;" stylesheets="@css/main.css" text="添加账单" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="40.0">
          <font>

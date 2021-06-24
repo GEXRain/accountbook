@@ -26,3 +26,21 @@
     -jfx-expanded: false;
     -fx-pref-width: 200;
 }
+
+.custom-jfx-progress-bar-stroke > .bar {
+    -fx-background-color: #5264AE;
+    -fx-padding: 3;
+}
+ 
+.custom-jfx-progress-bar > .secondary-bar {
+    -fx-background-color: rgba(255, 135, 21, 0.45);
+}
+ 
+.custom-jfx-progress-bar > .bar {
+    -fx-background-color: #ff8000;
+}
+ 
+.custom-jfx-progress-bar-start > .bar {
+    -fx-background-color: #ff8000;
+    -fx-padding: 6;
+}

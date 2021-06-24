@@ -8,6 +8,7 @@ import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -19,6 +20,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import space.grain49.server.PaymentAccountDbUtil;
@@ -39,8 +41,13 @@ public class paymentAccountController {
     @FXML
     private JFXTreeTableColumn<PaymentAccountAdapter, String> moneyColumn;
 
-    public void initialize() {
+    @FXML
+    private VBox loadingTips;
 
+    public void initialize() {
+        loadingTips.setVisible(true);
+        ObservableList<PaymentAccountAdapter> paymentAccountAdapters = FXCollections.observableArrayList();
+        getData(paymentAccountAdapters);
         nameColumn.setCellValueFactory((TreeTableColumn.CellDataFeatures<PaymentAccountAdapter, String> param) -> {
             if (nameColumn.validateValue(param)) {
                 return param.getValue().getValue().nameProperty();
@@ -57,18 +64,9 @@ public class paymentAccountController {
             }
         });
 
-        ObservableList<PaymentAccountAdapter> paymentAccountAdapters = FXCollections.observableArrayList();
-        PaymentAccountDbUtil sPaymentAccountDbUtil = PaymentAccountDbUtil.get();
-        List<PaymentAccount> paymentAccounts = sPaymentAccountDbUtil.select(SignInData.getAccount());
-        for (PaymentAccount paymentAccount : paymentAccounts) {
-            paymentAccountAdapters.add(
-                    new PaymentAccountAdapter(paymentAccount.getName(), Double.toString(paymentAccount.getMoney())));
-        }
-
         final TreeItem<PaymentAccountAdapter> root = new RecursiveTreeItem<>(paymentAccountAdapters,
                 RecursiveTreeObject::getChildren);
 
-        money.setText(Double.toString(calculateSum(paymentAccounts)));
         tableView.setRoot(root);
         tableView.setShowRoot(false);
         tableView.setEditable(false);
@@ -100,12 +98,34 @@ public class paymentAccountController {
             return money;
         }
     }
-    
-    public void addPaymentAccount() throws IOException{
+
+    public void addPaymentAccount() throws IOException {
         Stage windows = new Stage();
         Pane contentPage = FXMLLoader.load(getClass().getResource("./添加资产账户.fxml"));
         Scene scene = new Scene(contentPage);
         windows.setScene(scene);
         windows.show();
+    }
+
+    private void getData(ObservableList<PaymentAccountAdapter> paymentAccountAdapters) {
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+
+                PaymentAccountDbUtil sPaymentAccountDbUtil = PaymentAccountDbUtil.get();
+                List<PaymentAccount> paymentAccounts = sPaymentAccountDbUtil.select(SignInData.getAccount());
+                for (PaymentAccount paymentAccount : paymentAccounts) {
+                    paymentAccountAdapters.add(new PaymentAccountAdapter(paymentAccount.getName(),
+                            Double.toString(paymentAccount.getMoney())));
+                }
+                Platform.runLater(() -> {
+                    money.setText(Double.toString(calculateSum(paymentAccounts)));
+                    loadingTips.setVisible(false);
+                });
+            }
+
+        };
+        thread.setName("thread1");
+        thread.start();
     }
 }

@@ -126,9 +126,9 @@ public class SignInDbUtil extends DBUtil{
                 return true;
             } catch (IOException e) {
                 System.out.println("read object failed");
-                e.printStackTrace();
+                //e.printStackTrace();
             } catch (ClassNotFoundException e) {
-                e.printStackTrace();
+                System.out.println("without Sign.dat");
             }
             return false;
         }       

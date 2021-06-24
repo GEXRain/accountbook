@@ -71,7 +71,7 @@ public class MainController {
 		});
 
 		// 抽屉打开状态下，点击content抽屉以关闭
-		content.addEventHandler(MouseEvent.MOUSE_CLICKED, (e) -> {
+		content.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
 			if (ht.getRate() != -1) {
 				toggerDrawer();
 			}
